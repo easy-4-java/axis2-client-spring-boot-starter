@@ -93,7 +93,7 @@ public class Axis2DocClientTemplate {
 	 */
 	public OMElement sendReceive(String serviceURL, String action, String namespaceURI, String method, Map<String, String> args) throws AxisFault {  
 		// 使用Doc方式调用WebService
-		ServiceClient serviceClient = new ServiceClient();
+		ServiceClient serviceClient = createServiceClient();
         // 指定调用WebService的URL  
         EndpointReference targetEpr = new EndpointReference(serviceURL);  
         // 确定目标服务地址
@@ -128,7 +128,7 @@ public class Axis2DocClientTemplate {
 	
 	public void sendReceiveNonBlocking(String serviceURL, String action, String namespaceURI, String method, Map<String, String> args, AxisCallback callback) throws AxisFault {  
 		// 使用Doc方式调用WebService
-		ServiceClient serviceClient = new ServiceClient();
+		ServiceClient serviceClient = createServiceClient();
         // 指定调用WebService的URL  
         EndpointReference targetEpr = new EndpointReference(serviceURL);  
         // 确定目标服务地址
@@ -163,4 +163,8 @@ public class Axis2DocClientTemplate {
     }
 	 
 	
+
+    protected ServiceClient createServiceClient() throws AxisFault {
+        return new ServiceClient();
+    }
 }
