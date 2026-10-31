@@ -61,7 +61,7 @@ public class Axis2RpcClientTemplate {
 	 */
 	public OMElement invoke(String wsdlURL, String action, String namespaceURI, String method, Object[] args) throws AxisFault {  
 		// 使用RPC方式调用WebService
-		RPCServiceClient serviceClient = new RPCServiceClient();
+		RPCServiceClient serviceClient = createRPCServiceClient();
         Options options = serviceClient.getOptions();  
         // 指定调用WebService的URL  
         EndpointReference targetEPR = new EndpointReference(wsdlURL);  
@@ -113,7 +113,7 @@ public class Axis2RpcClientTemplate {
 	 */
 	public Object[] invoke(String wsdlURL, String action, String namespaceURI, String method, Object[] args, Class<?>[] returnTypes) throws AxisFault {  
 		// 使用RPC方式调用WebService
-		RPCServiceClient serviceClient = new RPCServiceClient();
+		RPCServiceClient serviceClient = createRPCServiceClient();
         Options options = serviceClient.getOptions();  
         // 指定调用WebService的URL  
         EndpointReference targetEPR = new EndpointReference(wsdlURL);  
@@ -121,6 +121,7 @@ public class Axis2RpcClientTemplate {
         options.setTo(targetEPR);
         // 确定调用方法（wsdl 命名空间地址 (wsdl文档中的targetNamespace) 和 方法名称 的组合）
 		options.setAction(action);
+        serviceClient.setOverrideOptions(overrideOptions);
         // 指定要调用的方法及wsdl文件的命名空间
 		// 1.namespaceURI - 命名空间地址 (wsdl文档中的targetNamespace)
 		// 2.localPart - 服务视图名 (wsdl文档中operation的方法名称，例如<wsdl:operation name="getMobileCodeInfo">)
@@ -137,4 +138,8 @@ public class Axis2RpcClientTemplate {
     }
 	
 	
+
+    protected RPCServiceClient createRPCServiceClient() throws AxisFault {
+        return new RPCServiceClient();
+    }
 }
