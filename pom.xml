@@ -233,17 +233,34 @@
             <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/javax.activation/activation -->
+        <!-- Axiom 1.x uses javax.activation at runtime. -->
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+        </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.axis2/axis2-kernel -->
-
-        <!-- https://mvnrepository.com/artifact/org.apache.axis2/axis2-adb -->
-
-        <!-- https://mvnrepository.com/artifact/org.apache.axis2/axis2-transport-local -->
-
-        <!-- https://mvnrepository.com/artifact/org.apache.axis2/axis2-transport-http -->
-
-        <!-- https://mvnrepository.com/artifact/org.apache.axis2/addressing -->
+        <!-- Axis2 client API, data binding, transports and addressing -->
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-kernel</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-adb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-transport-local</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-transport-http</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>addressing</artifactId>
+            <type>mar</type>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.codehaus.woodstox/stax2-api -->
         <dependency>
