@@ -730,13 +730,6 @@
             <groupId>org.codehaus.woodstox</groupId>
             <artifactId>stax2-api</artifactId>
         </dependency>
-
-            <!-- For JUnit -->
-            <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
         <!-- For Commons IO -->
         <dependency>
             <groupId>commons-io</groupId>
