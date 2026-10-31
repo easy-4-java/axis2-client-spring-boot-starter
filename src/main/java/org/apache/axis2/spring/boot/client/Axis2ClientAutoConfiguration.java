@@ -37,7 +37,7 @@ public class Axis2ClientAutoConfiguration implements ApplicationContextAware {
 		Options overrideOptions = new Options();
 		Axis2ClientOptions options = properties.getOptions();
 		
-		PropertyMapper map = PropertyMapper.get().alwaysApplyingWhenNonNull();
+		PropertyMapper map = PropertyMapper.get();
 		map.from(options.getAction()).to(overrideOptions::setAction);
 		map.from(options.getPassword()).to(overrideOptions::setPassword);
 		map.from(options.getProperties()).to(overrideOptions::setProperties);
